@@ -1,17 +1,12 @@
-var count = 0
 var timeEl = document.querySelector("#time");
 var startBtn = document.querySelector("#start");
 var secondsLeft = 6;
 
 
 // function to start the game
-
-// startBtn.addEventListener("click", function() {
-//     timeEl.textContent = time
-//     setTime();
-// });
-
-
+startBtn.addEventListener("click", function() {
+    countdown();
+});
 
 
 // function to start timer 90 sec
@@ -27,7 +22,7 @@ function countdown() {
         }
     }, 1000);
 }
-countdown();
+// countdown();
 
 
 
