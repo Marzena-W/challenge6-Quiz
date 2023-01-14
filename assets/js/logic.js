@@ -1,59 +1,41 @@
 var timeEl = document.querySelector("#time");
 var startBtn = document.querySelector("#start");
-var secondsLeft = 6;
+var questionTitleH2 = document.querySelector("#question-title");
+var choicesDiv = document.querySelector("#choices");
+var wrapper = document.querySelector(".wrapper");
+var questionsDiv = document.querySelector("#questions");
 
 
 // function to start the game
-startBtn.addEventListener("click", function() {
+startBtn.addEventListener("click", function () {
+    document.getElementById("start-screen").style.display = 'none';
     countdown();
+    questionsDiv.classList.remove('hide');
+    showQuestion();
+        
 });
+console.log(questionsDiv.classList);
 
 
 // function to start timer 90 sec
 function countdown() {
-    var timetimeInterval = setInterval(function() {
+    var secondsLeft = 5;
+    var timerCount = setInterval(function () {
         secondsLeft--;
         timeEl.textContent = secondsLeft;
-        // when timer goes to or below 0 end of game
-        if(secondsLeft === 0 || secondsLeft < 0) {
-        clearInterval(timetimeInterval);
-        //calls function to show page with final score 
-        scorePage();
-        }
+        // when timer is 0 or below 0, it's end of the game
+        if (secondsLeft === 0 || secondsLeft < 0) {
+            clearInterval(timerCount);
+            // calls function to show page with final score 
+            // scorePage();  
+        };
     }, 1000);
-}
-// countdown();
+};
 
-
-
-
-// function to show a question (for loop) 
-    // button changes from blue to pink when hover over (pointer)
-
-// function startGame() {
-//     for (i = 0; i < quizQuestions.length; i++) {
-//         quizQuestions[i].question;
-//     }
-// }
-
-// function to check answer
-    // function to deduct 15sec if answer is wrong
-    // show below the answers if function is "wrong" or "correct"
-
-
-// function scorePage
-    // show final score
-    // add initials
-    // submit to local storage
-
-// high scores page
-    // shows all scores saved to local storage
-    // go back function
-    // clear score function
-
-// go back function
-
-// clear score function
-
-
-// startGame()
+// function to show a questions
+function showQuestion() {
+    for (var i = 0; i < quizQuestions.length; i++) {
+    questionTitleH2.textContent = quizQuestions[i].question;
+    console.log("question", quizQuestions[i].question);
+    }
+};
