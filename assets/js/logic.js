@@ -5,15 +5,15 @@ var choicesDiv = document.querySelector("#choices");
 var questionsDiv = document.querySelector("#questions");
 var buttons = document.getElementsByTagName("button");
 var endScreenEl = document.querySelector("#end-screen");
+
 var questionIndex = 0
 
 var endScreenEl = document.querySelector("#end-screen");
 var finalScoreP = document.querySelector("#final-score");
+var initialsEl = document.querySelector("#initials")
 var submitEl = document.querySelector("#submit");
-var finalSecondsLeft = localStorage.getItem("storedCount");
+var remainingSeconds;
 
-
-finalScoreP.textContent = finalSecondsLeft;
 
 
 startBtn.addEventListener("click", StartQuiz)
@@ -28,9 +28,9 @@ function StartQuiz() {
 };
 
 
-// function to start timer 90 sec
+// function to start the time
 function countdown() {
-    var secondsLeft = 3;
+    secondsLeft = 90;
     var timerCount = setInterval(function () {
         secondsLeft--;
         timeEl.textContent = secondsLeft;
@@ -38,14 +38,15 @@ function countdown() {
         if (secondsLeft === 0 || secondsLeft < 0) {
             clearInterval(timerCount);
             questionsDiv.style.display = 'none';
-            scorePage();
+            allDone();
         } else if (questionIndex === 5 && secondsLeft > 0) {
             // to stop showing questions when time is up
             clearInterval(timerCount);
             questionsDiv.style.display = 'none';
-            scorePage();
+            allDone();
         };
     }, 1000);
+    remainingSeconds = secondsLeft;
 };
 
 // function to show a questions
@@ -56,7 +57,7 @@ function showQuestion() {
 
 // function to show answers
 function choices() {
-    choicesDiv.textContent = ""
+    choicesDiv.textContent = " "
     for (var j = 0; j < quizQuestions[questionIndex].answers.length; j++) {
         var button = document.createElement("button");
         button.textContent = quizQuestions[questionIndex].answers[j];
@@ -78,7 +79,8 @@ function checkAnswer() {
             var answer = this.textContent
             if (answer === correctAnswerIndex) {
                 document.querySelector("#message").textContent = "correct";
-            } else {
+            } else if (answer != correctAnswerIndex) {
+                secondsLeft = secondsLeft - 15;
                 document.querySelector("#message").textContent = "wrong";
             };
             questionIndex++;
@@ -88,23 +90,31 @@ function checkAnswer() {
     };
 };
 
+
+
+submitEl.addEventListener("click", function(event) {
+    event.preventDefault();
+    var initialsEl = document.querySelector("#initials").value;
+    localStorage.setItem("initials", initials);
+})
+
+
+
+
 // final score page
-function scorePage() {
+function allDone() {
     // to remove class from end-screen
     endScreenEl.classList.remove('hide');
-
-    // show final score
-    // add initials
-    // submit to local storage
+    finalScoreP.textContent = secondsLeft;
+    // not done yet
+    var savedSeconds = localStorage.getItem("secondsLeft")
+    
 
 };
 
 
 
 
-
-
-// function to deduct 15sec if answer is wrong
 
 // high scores page
 // shows all scores saved to local storage
