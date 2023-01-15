@@ -14,6 +14,10 @@ var initialsEl = document.querySelector("#initials")
 var submitEl = document.querySelector("#submit");
 var remainingSeconds;
 
+var clearButton = document.querySelector("#clear"); // in second html
+
+
+
 
 
 startBtn.addEventListener("click", StartQuiz)
@@ -26,7 +30,6 @@ function StartQuiz() {
     questionsDiv.classList.remove('hide');
     showQuestion();
 };
-
 
 // function to start the time
 function countdown() {
@@ -63,6 +66,7 @@ function choices() {
         button.textContent = quizQuestions[questionIndex].answers[j];
         choicesDiv.appendChild(button);
     }
+    // creates p tag to show message(correct or wrong) after choosing an answer
     var answerMessage = document.createElement("p");
     answerMessage.setAttribute("id", "message");
     choicesDiv.appendChild(answerMessage);
@@ -90,45 +94,44 @@ function checkAnswer() {
     };
 };
 
+// on clink of a button "submit"
+    // score from finalScoreP send to local storage
+    // enter initials send to local storage
+
+// return final score and initials on the high scores page
+// create li elements 
+// appended them to the highscores ol list
 
 
-submitEl.addEventListener("click", function(event) {
+
+// clear scores function
+function clearScores() {
+    localStorage.clear();
+};
+
+
+
+
+
+// below not ready
+
+submitEl.addEventListener("click", function (event) {
     event.preventDefault();
     var initialsEl = document.querySelector("#initials").value;
     localStorage.setItem("initials", initials);
 })
 
 
-
-
-// final score page
+// final score page - not ready
 function allDone() {
     // to remove class from end-screen
     endScreenEl.classList.remove('hide');
     finalScoreP.textContent = secondsLeft;
-    // not done yet
+
     var savedSeconds = localStorage.getItem("secondsLeft")
-    
-
 };
 
 
 
 
 
-// high scores page
-// shows all scores saved to local storage
-// go back function
-// clear score function
-
-
-
-// go back function
-function goBack() {
-    StartQuiz();
-};
-
-// clear score function
-function clearScores() {
-    console.log("to clear score page");
-};
