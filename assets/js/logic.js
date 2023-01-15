@@ -3,24 +3,34 @@ var startBtn = document.querySelector("#start");
 var questionTitleH2 = document.querySelector("#question-title");
 var choicesDiv = document.querySelector("#choices");
 var questionsDiv = document.querySelector("#questions");
-var buttons = document.getElementsByTagName("button"); 
+var buttons = document.getElementsByTagName("button");
 var endScreenEl = document.querySelector("#end-screen");
 var questionIndex = 0
 
+var endScreenEl = document.querySelector("#end-screen");
+var finalScoreP = document.querySelector("#final-score");
+var submitEl = document.querySelector("#submit");
+var finalSecondsLeft = localStorage.getItem("storedCount");
+
+
+finalScoreP.textContent = finalSecondsLeft;
+
+
+startBtn.addEventListener("click", StartQuiz)
+
 // function to start the game
-startBtn.addEventListener("click", function () {
+function StartQuiz() {
     document.getElementById("start-screen").style.display = 'none';
     countdown();
     // to show questions and answers
     questionsDiv.classList.remove('hide');
     showQuestion();
-});
-
+};
 
 
 // function to start timer 90 sec
 function countdown() {
-    var secondsLeft = 5;
+    var secondsLeft = 3;
     var timerCount = setInterval(function () {
         secondsLeft--;
         timeEl.textContent = secondsLeft;
@@ -28,12 +38,15 @@ function countdown() {
         if (secondsLeft === 0 || secondsLeft < 0) {
             clearInterval(timerCount);
             questionsDiv.style.display = 'none';
-            endScreenEl.classList.remove('hide');
+            scorePage();
+        } else if (questionIndex === 5 && secondsLeft > 0) {
+            // to stop showing questions when time is up
+            clearInterval(timerCount);
+            questionsDiv.style.display = 'none';
             scorePage();
         };
     }, 1000);
 };
-
 
 // function to show a questions
 function showQuestion() {
@@ -77,11 +90,15 @@ function checkAnswer() {
 
 // final score page
 function scorePage() {
-console.log("this will be score page");
-};
- // show final score
+    // to remove class from end-screen
+    endScreenEl.classList.remove('hide');
+
+    // show final score
     // add initials
     // submit to local storage
+
+};
+
 
 
 
@@ -90,22 +107,15 @@ console.log("this will be score page");
 // function to deduct 15sec if answer is wrong
 
 // high scores page
-    // shows all scores saved to local storage
-    // go back function
-    // clear score function
+// shows all scores saved to local storage
+// go back function
+// clear score function
 
 
 
 // go back function
 function goBack() {
-    startBtn.addEventListener("click", function () {
-        document.getElementById("start-screen").style.display = 'none';
-        countdown();
-        // to show questions and answers
-        questionsDiv.classList.remove('hide');
-        showQuestion();
-    });
-    console.log("working?")
+    StartQuiz();
 };
 
 // clear score function
