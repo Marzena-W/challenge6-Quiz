@@ -7,7 +7,7 @@ var quizQuestions = [
             "3. const name = 'Ada'",
             "4. let name = 'Ada'"
         ],
-        correctAnswerIndex: 2
+        correctAnswerIndex: "4. let name = 'Ada'"
     },
     {
         question: "2. Arrays in JavaScript can be used to store ____.",
@@ -17,7 +17,7 @@ var quizQuestions = [
             "3. booleans",
             "4. all of the above"
         ],
-        correctAnswerIndex: 4
+        correctAnswerIndex: "4. all of the above"
     },
     {
         question: "3. A tool used during development and debugging for printing content to the console is:",
@@ -27,7 +27,7 @@ var quizQuestions = [
             "3. console.log",
             "4. for loops"
         ],
-        correctAnswerIndex: 3
+        correctAnswerIndex: "3. console.log"
     },
     {
         question: "4. How do you create a function in JavaScript?",
@@ -37,7 +37,7 @@ var quizQuestions = [
             "3. function = myFunction()",
             "4. none of the above"
         ],
-        correctAnswerIndex: 1
+        correctAnswerIndex: "1. function myFunction()"
     },
     {
         question: "5. Inside which HTML element do we put the JavaScript?",
@@ -47,6 +47,6 @@ var quizQuestions = [
             "3. <js>",
             "4. <script>"
         ],
-        correctAnswerIndex: 4
+        correctAnswerIndex: "4. <script>"
     },
 ];
