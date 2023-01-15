@@ -3,7 +3,7 @@ var startBtn = document.querySelector("#start");
 var questionTitleH2 = document.querySelector("#question-title");
 var choicesDiv = document.querySelector("#choices");
 var questionsDiv = document.querySelector("#questions");
-
+var buttons = document.getElementsByTagName("button");  // or querySelector?
 
 
 // function to start the game
@@ -14,6 +14,7 @@ startBtn.addEventListener("click", function () {
     questionsDiv.classList.remove('hide');
     showQuestion();
     choices();
+    checkAnswer();
 });
 console.log(questionsDiv.classList);
 
@@ -35,26 +36,35 @@ function countdown() {
 
 
 // function to show a questions
-function showQuestion() {
+function showQuestion(event) { 
     for (var i = 0; i < quizQuestions.length; i++) {
-        questionTitleH2.textContent = quizQuestions[0].question;
+        questionTitleH2.textContent = quizQuestions[i].question;
+        event.preventDefault() 
     }
 };
 
 // function to show answers
-function choices() {
-    for (var j = 0; j < quizQuestions[0].answers.length; j++) {
+function choices(event) {
+    for (var j = 0; j < quizQuestions[j].answers.length; j++) {
         var button = document.createElement("button");
         button.textContent = quizQuestions[j].answers;
         choicesDiv.appendChild(button);
+        event.preventDefault()
     }
 };
 choices();
 
 
 // function to check answers
-function checkAnswer() {
-    for (var i = 0; i < quizQuestions.length; i++) {
-        
-    }
-}
+// function checkAnswer() {
+//     for (var i = 0; i < buttons.length; i++) {
+//         var correctAnswerIndex = quizQuestions[i].correctAnswerIndex;
+//         buttons[i].addEventListener("click", function ()  {
+//             if(value == correctAnswerIndex) {
+//                 return "correct";
+//             } else {
+//                 return "wrong";
+//             };
+//         });
+//     };
+// };
