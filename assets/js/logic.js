@@ -2,17 +2,18 @@ var timeEl = document.querySelector("#time");
 var startBtn = document.querySelector("#start");
 var questionTitleH2 = document.querySelector("#question-title");
 var choicesDiv = document.querySelector("#choices");
-var wrapper = document.querySelector(".wrapper");
 var questionsDiv = document.querySelector("#questions");
+
 
 
 // function to start the game
 startBtn.addEventListener("click", function () {
     document.getElementById("start-screen").style.display = 'none';
     countdown();
+    // to show questions and answers
     questionsDiv.classList.remove('hide');
     showQuestion();
-        
+    choices();
 });
 console.log(questionsDiv.classList);
 
@@ -32,10 +33,28 @@ function countdown() {
     }, 1000);
 };
 
+
 // function to show a questions
 function showQuestion() {
     for (var i = 0; i < quizQuestions.length; i++) {
-    questionTitleH2.textContent = quizQuestions[i].question;
-    console.log("question", quizQuestions[i].question);
+        questionTitleH2.textContent = quizQuestions[0].question;
     }
 };
+
+// function to show answers
+function choices() {
+    for (var j = 0; j < quizQuestions[0].answers.length; j++) {
+        var button = document.createElement("button");
+        button.textContent = quizQuestions[j].answers;
+        choicesDiv.appendChild(button);
+    }
+};
+choices();
+
+
+// function to check answers
+function checkAnswer() {
+    for (var i = 0; i < quizQuestions.length; i++) {
+        
+    }
+}
