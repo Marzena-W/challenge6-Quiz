@@ -14,9 +14,6 @@ var initialsInput = document.querySelector("#initials")
 var submitBtn = document.querySelector("#submit");
 var remainingSeconds;
 
-// var clearBtn = document.querySelector("#clear"); // in second html
-
-
 
 
 
@@ -111,15 +108,3 @@ submitBtn.addEventListener("click", function() {
 var initials = initialsInput.value;
 localStorage.setItem("initials", initials);
 });
-
-
-// high scores page loads
-    // retrive from local storage points and initials
-    // display in a list
-
-
-
-
-
-// var initials = localStorage.getItem("initials");
-// window.location.href = highscores.html; 
