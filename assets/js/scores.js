@@ -10,4 +10,11 @@ var finalScore = localStorage.getItem("storedSecondsLeft")
 li.textContent = initials + " - " + finalScore;
 
 
+
+
 // function to "Clear Highscores" 
+clearBtn.addEventListener("click", clearAll);
+function clearAll() {
+    localStorage.clear();
+    li.style.display = 'none';
+}
