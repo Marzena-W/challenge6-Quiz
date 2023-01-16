@@ -10,20 +10,20 @@ var questionIndex = 0
 
 var endScreenEl = document.querySelector("#end-screen");
 var finalScoreP = document.querySelector("#final-score");
-var initialsEl = document.querySelector("#initials")
-var submitEl = document.querySelector("#submit");
+var initialsInput = document.querySelector("#initials")
+var submitBtn = document.querySelector("#submit");
 var remainingSeconds;
 
-var clearButton = document.querySelector("#clear"); // in second html
+// var clearBtn = document.querySelector("#clear"); // in second html
 
 
 
 
 
-startBtn.addEventListener("click", StartQuiz)
+startBtn.addEventListener("click", startQuiz)
 
 // function to start the game
-function StartQuiz() {
+function startQuiz() {
     document.getElementById("start-screen").style.display = 'none';
     countdown();
     // to show questions and answers
@@ -94,9 +94,21 @@ function checkAnswer() {
     };
 };
 
-// on clink of a button "submit"
-    // score from finalScoreP send to local storage
-    // enter initials send to local storage
+
+// not ready
+function allDone() {
+    // to remove class from end-screen
+    endScreenEl.classList.remove('hide');
+};
+
+
+
+
+
+
+// on click of a button "submit"
+// score from finalScoreP send to local storage
+// enter initials send to local storage
 
 // return final score and initials on the high scores page
 // create li elements 
@@ -104,10 +116,6 @@ function checkAnswer() {
 
 
 
-// clear scores function
-function clearScores() {
-    localStorage.clear();
-};
 
 
 
@@ -115,22 +123,31 @@ function clearScores() {
 
 // below not ready
 
-submitEl.addEventListener("click", function (event) {
-    event.preventDefault();
-    var initialsEl = document.querySelector("#initials").value;
-    localStorage.setItem("initials", initials);
-})
 
 
-// final score page - not ready
-function allDone() {
-    // to remove class from end-screen
-    endScreenEl.classList.remove('hide');
-    finalScoreP.textContent = secondsLeft;
+// on click of a button "submit"
+// submitBtn .addEventListener("click", function(event) {
+//     event.preventDefault();
 
-    var savedSeconds = localStorage.getItem("secondsLeft")
-};
 
+//     var initialsInput = document.querySelector("#initials").value;
+//     localStorage.setItem("initials", initialsInput);
+// });
+
+
+
+
+
+
+// function to "Clear Highscores" 
+// clearBtn.addEventListener("click", clearScores);
+// function clearScores() {
+//     localStorage.clear();
+// };
+
+// clearBtn.addEventListener("click", function(event) {
+//     localStorage.clear();
+// });
 
 
 
