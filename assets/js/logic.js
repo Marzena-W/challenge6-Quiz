@@ -83,9 +83,11 @@ function checkAnswer() {
             var answer = this.textContent
             if (answer === correctAnswerIndex) {
                 document.querySelector("#message").textContent = "correct";
+                document.querySelector("#message").style.color = "green";
             } else if (answer != correctAnswerIndex) {
                 secondsLeft = secondsLeft - 15;
                 document.querySelector("#message").textContent = "wrong";
+                document.querySelector("#message").style.color = "red";
             };
             questionIndex++;
             // delay to show answer before showing next question
@@ -94,61 +96,30 @@ function checkAnswer() {
     };
 };
 
-
-// not ready
+// function on click of a button "submit" score and to add initials
 function allDone() {
-    // to remove class from end-screen
-    endScreenEl.classList.remove('hide');
+    endScreenEl.classList.remove('hide');  // to remove class from end-screen
+    finalScoreP.textContent = secondsLeft;
+    // score sent to a local storage
+    localStorage.setItem("storedSecondsLeft", secondsLeft);
 };
 
 
+// when button clicked
+submitBtn.addEventListener("click", function() {
+// initials sent tot local storage
+var initials = initialsInput.value;
+localStorage.setItem("initials", initials);
+});
 
 
-
-
-// on click of a button "submit"
-// score from finalScoreP send to local storage
-// enter initials send to local storage
-
-// return final score and initials on the high scores page
-// create li elements 
-// appended them to the highscores ol list
-
-
-
-
-
-
-
-
-// below not ready
-
-
-
-// on click of a button "submit"
-// submitBtn .addEventListener("click", function(event) {
-//     event.preventDefault();
-
-
-//     var initialsInput = document.querySelector("#initials").value;
-//     localStorage.setItem("initials", initialsInput);
-// });
+// high scores page loads
+    // retrive from local storage points and initials
+    // display in a list
 
 
 
 
 
-
-// function to "Clear Highscores" 
-// clearBtn.addEventListener("click", clearScores);
-// function clearScores() {
-//     localStorage.clear();
-// };
-
-// clearBtn.addEventListener("click", function(event) {
-//     localStorage.clear();
-// });
-
-
-
-
+// var initials = localStorage.getItem("initials");
+// window.location.href = highscores.html; 
