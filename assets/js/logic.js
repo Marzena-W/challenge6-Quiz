@@ -107,4 +107,6 @@ submitBtn.addEventListener("click", function() {
 // initials sent tot local storage
 var initials = initialsInput.value;
 localStorage.setItem("initials", initials);
+window.location.href = "highscores.html";
 });
+
