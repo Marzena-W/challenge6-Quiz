@@ -16,7 +16,6 @@ var remainingSeconds;
 
 
 
-
 startBtn.addEventListener("click", startQuiz)
 
 // function to start the game
@@ -30,7 +29,7 @@ function startQuiz() {
 
 // function to start the time
 function countdown() {
-    secondsLeft = 90;
+    secondsLeft = 75;
     var timerCount = setInterval(function () {
         secondsLeft--;
         timeEl.textContent = secondsLeft;
@@ -103,10 +102,9 @@ function allDone() {
 
 
 // when button clicked
-submitBtn.addEventListener("click", function() {
-// initials sent tot local storage
-var initials = initialsInput.value;
-localStorage.setItem("initials", initials);
-window.location.href = "highscores.html";
+submitBtn.addEventListener("click", function () {
+    // initials sent tot local storage
+    var initials = initialsInput.value;
+    localStorage.setItem("initials", initials);
+    window.location.href = "highscores.html";
 });
-
