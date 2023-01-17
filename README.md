@@ -11,7 +11,7 @@ To access the solution open the below link to deployed application.
 * Answer all questions
 * Add initials
 * Screenshot of the challenge5:
-![Screenshot](images/challenge6-quiz.png)
+![Screenshot](./images/challenge6-quiz.png)
 
 
 ## Credits

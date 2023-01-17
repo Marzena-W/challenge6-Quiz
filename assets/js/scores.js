@@ -1,14 +1,16 @@
 var clearBtn = document.querySelector("#clear");
 var highScoresOl = document.querySelector("#highscores");
 
-var li = document.createElement("li");
-highScoresOl.appendChild(li);
-
 var initials = localStorage.getItem("initials");
 var finalScore = localStorage.getItem("storedSecondsLeft")
 
 
-li.textContent = initials + " - " + finalScore;
+function scoreList() {  
+    var li = document.createElement("li");
+    highScoresOl.appendChild(li);
+    li.textContent = initials + " - " + finalScore;
+};
+scoreList();
 
 
 // function to "Clear Highscores" 

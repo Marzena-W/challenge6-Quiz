@@ -96,15 +96,17 @@ function checkAnswer() {
 function allDone() {
     endScreenEl.classList.remove('hide');  // to remove class from end-screen
     finalScoreP.textContent = secondsLeft;
-    // score sent to a local storage
-    localStorage.setItem("storedSecondsLeft", secondsLeft);
 };
 
 
 // when button clicked
 submitBtn.addEventListener("click", function () {
+    // score sent to a local storage
+    localStorage.setItem("storedSecondsLeft", secondsLeft);
+
     // initials sent tot local storage
     var initials = initialsInput.value;
     localStorage.setItem("initials", initials);
+
     window.location.href = "highscores.html";
 });
