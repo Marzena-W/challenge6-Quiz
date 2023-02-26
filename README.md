@@ -1,4 +1,4 @@
-# challenge6-Quiz
+# Quiz
 
 ## Description 
 > In challenge 6 I created a timed, multiple-choice quiz that can keep track of high scores and quiz-takers' initials. 
