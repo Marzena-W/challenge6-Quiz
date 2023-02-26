@@ -6,7 +6,7 @@
 
 ## Usage 
 To access the solution open the below link to deployed application.
-* Deployed application - [https://marzena-w.github.io/challenge6-Quiz/]
+* Deployed application - [https://marzena-w.github.io/quiz/]
 * Click button "Start Quiz"
 * Answer all questions
 * Add initials
