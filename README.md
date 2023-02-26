@@ -10,7 +10,7 @@ To access the solution open the below link to deployed application.
 * Click button "Start Quiz"
 * Answer all questions
 * Add initials
-* Screenshot of the challenge5:
+* Screenshot:
 ![Screenshot](./images/challenge6-quiz.png)
 
 
